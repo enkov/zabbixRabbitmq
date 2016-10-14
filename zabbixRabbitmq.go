@@ -77,6 +77,10 @@ func main() {
 		log.WithFields(log.Fields{"error": err}).Fatalln("Can't connect to rabbit")
 	}
 
+	log.Debug("Start sendRabbitOverview goroutine")
+	wg.Add(1)
+	go sendRabbitOverview(zabbixAgentHostname, rmqc, zabbixHost, zabbixPort)
+
 	log.Debug("Start sendQueueInfo goroutine")
 	wg.Add(1)
 	go sendQueueInfo(zabbixAgentHostname, rmqc, zabbixHost, zabbixPort)
@@ -85,6 +89,7 @@ func main() {
 	wg.Add(1)
 	go sendRabbitNodeInfo(rabbitmqNodeName, zabbixAgentHostname, rmqc, zabbixHost, zabbixPort)
 
+	log.Debug("Start sendVhostInfo goroutine")
 	wg.Add(1)
 	go sendVhostInfo(zabbixAgentHostname, rmqc, zabbixHost, zabbixPort)
 
@@ -167,6 +172,26 @@ func sendVhostInfo(hostname string, rmqc *rabbithole.Client, zabbixHost string, 
 		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.vhost."+v.Name+".messagesunacknowledgeddetails", strconv.FormatFloat(float64(v.MessagesUnacknowledgedDetails.Rate), 'f', -1, 32), time.Now().Unix()))
 	}
 	log.Debug("Send rabbitmq vhosts info to zabbix")
+	sendToZabbix(zabbixHost, zabbixPort, metrics)
+	return err
+}
+
+func sendRabbitOverview(hostname string, rmqc *rabbithole.Client, zabbixHost string, zabbixPort int) error {
+	defer wg.Done()
+	var metrics []*zabbix.Metric
+	log.Info("Get overview about rabbitmq")
+	overview, err := rmqc.Overview()
+	if err != nil {
+		log.WithFields(log.Fields{"error": err}).Fatalln("Can't get node info")
+	}
+	metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.info.managementversion", overview.ManagementVersion, time.Now().Unix()))
+	//metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.info.statisticslevel", overview.StatisticsLevel, time.Now().Unix()))
+	metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.info.rabbitmqversion", overview.RabbitMQVersion, time.Now().Unix()))
+	metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.info.erlangversion", overview.ErlangVersion, time.Now().Unix()))
+	metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.info.fullerlangversion", overview.FullErlangVersion, time.Now().Unix()))
+	metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.info.statisticsdbnode", overview.StatisticsDBNode, time.Now().Unix()))
+
+	log.Debug("Send rabbitmq overview to zabbix")
 	sendToZabbix(zabbixHost, zabbixPort, metrics)
 	return err
 }

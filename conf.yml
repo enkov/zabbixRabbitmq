@@ -1,5 +1,5 @@
 # Zabbix server conf
-zabbix_host: "192.168.3.111"
+zabbix_host: ""
 zabbix_port: 10051
 
 #Zabbix agent conf
@@ -7,12 +7,12 @@ zabbix_agent_hostname: "RabbitMQ"
 
 #Vault conf
 vault_enabled: true
-vault_addr: "http://192.168.3.108:8200"
-vault_rabbit_path: "secret/prod/rabbitmq"
+vault_addr: "http://:8200"
+vault_rabbit_path: "secret/rabbitmq"
 vault_token: ""
 
 #RabbitMQ conf
-rabbitmq_host: "192.168.3.107"
+rabbitmq_host: ""
 rabbitmq_api_port: "15672"
 rabbitmq_user: ""
 rabbitmq_passwd: ""
