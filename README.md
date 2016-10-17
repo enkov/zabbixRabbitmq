@@ -32,6 +32,25 @@ The second thing to do is to import template in zabbix.
 This template realizes only rabbitmq server stats.
 If you want to monitor queue or vhosts, when you should add them in zabbix yourself.
 
+####Create queue and vhosts in zabbix template
+
+To create queues and vhost use create_items.py script.
+
+This script uses pyzabbix library so it should be installed
+```
+pip install pyzabbix
+```
+
+After installing library change variables in script
+
+- ZABBIX_USER
+- ZABBIX_PASSWD
+- TEMPALTE_ID - id of template
+- QUEUE_APPLICATION_ID - id of queues element group
+- VHOST_APPLICATION_ID - id of vhosts element group
+- QUEUES - list of queues in rabbitmq
+- VHOSTS - list of vhosts in rabbitmq
+
 ####Queue keys fo zabbix trapper
 - rabbitmq.queue.+Name(type: int) - show count of all messages in queue
 - rabbitmq.queue.+Name.vhost(type: string)

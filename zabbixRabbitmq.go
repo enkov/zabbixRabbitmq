@@ -133,7 +133,7 @@ func sendQueueInfo(hostname string, rmqc *rabbithole.Client, zabbixHost string, 
 		log.WithFields(log.Fields{"error": err}).Fatalln("Can't get list of queues")
 	}
 	for _, v := range qs {
-		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name, strconv.Itoa(v.Messages), time.Now().Unix()))
+		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".messages", strconv.Itoa(v.Messages), time.Now().Unix()))
 		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".vhost", v.Vhost, time.Now().Unix()))
 		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".durable", strconv.FormatBool(v.Durable), time.Now().Unix()))
 		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".autodelete", strconv.FormatBool(v.AutoDelete), time.Now().Unix()))
@@ -144,8 +144,8 @@ func sendQueueInfo(hostname string, rmqc *rabbithole.Client, zabbixHost string, 
 		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".messagesdetails", strconv.FormatFloat(float64(v.MessagesDetails.Rate), 'f', -1, 32), time.Now().Unix()))
 		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".messagesready", strconv.Itoa(v.MessagesReady), time.Now().Unix()))
 		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".messagesreadydetails", strconv.FormatFloat(float64(v.MessagesReadyDetails.Rate), 'f', -1, 32), time.Now().Unix()))
-		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".MessagesUnacknowledged", strconv.Itoa(v.MessagesUnacknowledged), time.Now().Unix()))
-		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".MessagesUnacknowledgedDetails", strconv.FormatFloat(float64(v.MessagesUnacknowledgedDetails.Rate), 'f', -1, 32), time.Now().Unix()))
+		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".messagesunacknowledged", strconv.Itoa(v.MessagesUnacknowledged), time.Now().Unix()))
+		metrics = append(metrics, zabbix.NewMetric(hostname, "rabbitmq.queue."+v.Name+".messagesunacknowledgeddetails", strconv.FormatFloat(float64(v.MessagesUnacknowledgedDetails.Rate), 'f', -1, 32), time.Now().Unix()))
 	}
 	log.Debug("Send rabbitmq queues info to zabbix")
 	sendToZabbix(zabbixHost, zabbixPort, metrics)

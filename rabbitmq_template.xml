@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.2</version>
-    <date>2016-10-12T13:01:33Z</date>
+    <date>2016-10-17T10:36:14Z</date>
     <groups>
-        <group>
-            <name>Rabbit Servers</name>
-        </group>
         <group>
             <name>Templates</name>
         </group>
     </groups>
     <templates>
         <template>
-            <template>Template App RabbitMQ</template>
-            <name>Template App RabbitMQ</name>
+            <template>Template App RabbitMQ github</template>
+            <name>Template App RabbitMQ github</name>
             <description/>
             <groups>
-                <group>
-                    <name>Rabbit Servers</name>
-                </group>
                 <group>
                     <name>Templates</name>
                 </group>
@@ -27,8 +21,229 @@
                 <application>
                     <name>RabbitMQ Info</name>
                 </application>
+                <application>
+                    <name>RabbitMQ Queue</name>
+                </application>
+                <application>
+                    <name>RabbitMQ Vhosts</name>
+                </application>
             </applications>
             <items>
+                <item>
+                    <name>Rabbitmq Erlang Version</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>rabbitmq.info.erlangversion</key>
+                    <delay>0</delay>
+                    <history>90</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>RabbitMQ Info</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Rabbitmq Management Version</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>rabbitmq.info.managementversion</key>
+                    <delay>0</delay>
+                    <history>90</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>RabbitMQ Info</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Rabbitmq Version</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>rabbitmq.info.rabbitmqversion</key>
+                    <delay>0</delay>
+                    <history>90</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>RabbitMQ Info</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Rabbitmq Statistics DB Node</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>rabbitmq.info.statisticsdbnode</key>
+                    <delay>0</delay>
+                    <history>90</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>RabbitMQ Info</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Rabbitmq  Statistics Level</name>
+                    <type>2</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>rabbitmq.info.statisticslevel</key>
+                    <delay>0</delay>
+                    <history>90</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>RabbitMQ Info</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
                 <item>
                     <name>RabbitMQ Disk Free</name>
                     <type>2</type>
@@ -641,7 +856,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template App RabbitMQ:rabbitmq.server.filedesc.percentused.last(0)}&gt;50</expression>
+            <expression>{Template App RabbitMQ github:rabbitmq.server.filedesc.percentused.last(0)}&gt;50</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Percent file descriptors greater than 50%</name>
@@ -653,17 +868,11 @@
             <description/>
             <type>0</type>
             <manual_close>0</manual_close>
-            <dependencies>
-                <dependency>
-                    <name>Percent file descriptors greater than 75%</name>
-                    <expression>{Template App RabbitMQ:rabbitmq.server.filedesc.percentused.last(0)}&gt;75</expression>
-                    <recovery_expression/>
-                </dependency>
-            </dependencies>
+            <dependencies/>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template App RabbitMQ:rabbitmq.server.filedesc.percentused.last(0)}&gt;75</expression>
+            <expression>{Template App RabbitMQ github:rabbitmq.server.filedesc.percentused.last(0)}&gt;75</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Percent file descriptors greater than 75%</name>
@@ -679,7 +888,7 @@
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template App RabbitMQ:rabbitmq.server.mem.percentused.last(0)}&gt;50</expression>
+            <expression>{Template App RabbitMQ github:rabbitmq.server.mem.percentused.last(0)}&gt;50</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Percent memory use greater than 50%</name>
@@ -691,17 +900,11 @@
             <description/>
             <type>0</type>
             <manual_close>0</manual_close>
-            <dependencies>
-                <dependency>
-                    <name>Percent memory use greater than 75%</name>
-                    <expression>{Template App RabbitMQ:rabbitmq.server.mem.percentused.last(0)}&gt;75</expression>
-                    <recovery_expression/>
-                </dependency>
-            </dependencies>
+            <dependencies/>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template App RabbitMQ:rabbitmq.server.mem.percentused.last(0)}&gt;75</expression>
+            <expression>{Template App RabbitMQ github:rabbitmq.server.mem.percentused.last(0)}&gt;75</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Percent memory use greater than 75%</name>
@@ -717,7 +920,7 @@
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template App RabbitMQ:rabbitmq.server.sockets.percentused.last(0)}&gt;50</expression>
+            <expression>{Template App RabbitMQ github:rabbitmq.server.sockets.percentused.last(0)}&gt;50</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Percent sockets use greater than 50%</name>
@@ -729,17 +932,11 @@
             <description/>
             <type>0</type>
             <manual_close>0</manual_close>
-            <dependencies>
-                <dependency>
-                    <name>Percent memory use greater than 75%</name>
-                    <expression>{Template App RabbitMQ:rabbitmq.server.mem.percentused.last(0)}&gt;75</expression>
-                    <recovery_expression/>
-                </dependency>
-            </dependencies>
+            <dependencies/>
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template App RabbitMQ:rabbitmq.server.sockets.percentused.last(0)}&gt;75</expression>
+            <expression>{Template App RabbitMQ github:rabbitmq.server.sockets.percentused.last(0)}&gt;75</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
             <name>Percent sockets use greater than 75%</name>
