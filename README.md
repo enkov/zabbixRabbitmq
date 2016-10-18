@@ -18,6 +18,7 @@ First of all you should change setting in config.
 Set rabbitmq and zabbix credentials.
 
 Optionally you can use hashicorp vault to get(set vault_enabled in conf) 
+
 - rabbitmq_host(in vault uses name host)
 - rabbitmq_user(in vault uses name user)
 - rabbitmq_passwd(in vault uses name passwd)
@@ -43,11 +44,16 @@ pip install pyzabbix
 
 After installing library change variables in script
 
+- CREATE_QUEUE_GROUP - if true creates queue group in template
+- CREATE_VHOSTS_GROUP - if true creates vhosts group in template
+- TEMPALTE_NAME - if you want script to create template
 - ZABBIX_USER
 - ZABBIX_PASSWD
-- TEMPALTE_ID - id of template
+- TEMPALTE_ID - id of template(if id = '' then script will create template)
 - QUEUE_APPLICATION_ID - id of queues element group
+(if id = '' and CREATE_QUEUE_GROUP = false, then create items without group)
 - VHOST_APPLICATION_ID - id of vhosts element group
+(if id = '' and CREATE_VHOSTS_GROUP = false, then create items without group)
 - QUEUES - list of queues in rabbitmq
 - VHOSTS - list of vhosts in rabbitmq
 
@@ -69,6 +75,7 @@ After installing library change variables in script
 where Name - name of queue in zabbix.
 
 ####Vhosts keys fo zabbix trapper
+
 - rabbitmq.vhost."+v.Name+".messages(type: int)
 - rabbitmq.vhost."+v.Name+".messagesdetails(type: float)
 - rabbitmq.vhost."+v.Name+".messagesready(type: int)
